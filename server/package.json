@@ -1,0 +1,14 @@
+{
+  "name": "renda-per-capita-server",
+  "version": "1.0.0",
+  "description": "Backend do web app renda-per-capita",
+  "main": "src/index.js",
+  "author": "ArthurSouzac",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
