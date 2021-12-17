@@ -6,6 +6,11 @@ Aplicação web básica que calcula a renda per capita e localiza o endereço do
 
 ### Clone o repositório para a sua máquina local
 
+```bash
+git clone https://github.com/ArthurSouzaC/renda_per_capita.git
+cd renda_per_capita
+```
+
 ### Instale as dependências do frontend e do backend
 
 - **No backend:**
@@ -43,7 +48,7 @@ cd server
 cp .env.example .env
 ```
 
-OBS 1: a porta padrão do backend é 8081, caso você deseje alterá-la no arquivo .env, altere também para o mesmo valor no arquivo client/config.js
+OBS 1: a porta padrão do backend é 8081, caso você deseje alterá-la no arquivo .env, altere também para o mesmo valor no arquivo client/src/config.js
 
 OBS 2: a porta padrão do frontend em React é 3000
 
