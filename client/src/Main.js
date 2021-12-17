@@ -14,7 +14,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
-import API_BASE_URL from '../config'
+import API_BASE_URL from './config'
 
 // Validação de campos do formulário
 const validationSchema = Yup.object({
