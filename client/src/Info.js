@@ -26,6 +26,7 @@ export default function Info() {
 
   // Retornar ao formulário inicial caso a rota tenha sido acessada sem submissão de dados
   if(!state) return <Navigate to="/" />
+  if(state.address.erro) return <Navigate to="/" />
 
   // Construção da string de endereço
   function Address() {

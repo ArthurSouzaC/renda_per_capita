@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import {
+  Alert,
   Box,
   Button,
+  Collapse,
   InputAdornment,
   Paper,
   TextField,
@@ -36,6 +39,7 @@ const validationSchema = Yup.object({
   num_dependents: Yup
     .number()
     .integer("Insira somente números inteiros")
+    .min(1, "Insira um valor maior ou igual a 1")
     .typeError("Insira somente números inteiros")
     .required("Este campo é obrigatório"),
 })
@@ -43,6 +47,7 @@ const validationSchema = Yup.object({
 // Fomulário de consulta
 export default function Main() {
   const navigate = useNavigate()
+  const [open, setOpen] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -58,7 +63,11 @@ export default function Main() {
       // Submissão dos dados ao backend
       const response = await axios.post(`${API_BASE_URL}/query`, data)
       
-      navigate('/info', { state: response.data })
+      if(response.data.address.erro) {
+        setOpen(true)
+      } else {
+        navigate('/info', { state: response.data })
+      }
     }
   })
 
@@ -83,6 +92,18 @@ export default function Main() {
 
               <Grid item xs={1}/>
             </Grid>
+
+            <Collapse in={open}>
+              <Alert
+                severity="error"
+                onClose={() => {
+                  setOpen(false);
+                }}
+                sx={{ mb: 2, mt: 2 }}
+              >
+                CEP inválido
+              </Alert>
+            </Collapse>
 
             <Grid container>
               <Grid item sm={1} md={2}/>
